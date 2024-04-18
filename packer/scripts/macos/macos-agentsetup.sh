@@ -40,11 +40,12 @@ done
 /usr/local/bin/update-alternatives --set java "$(/usr/local/bin/update-alternatives --list java | grep openjdk-21)"
 
 ## Install MacPorts and python39
-/usr/local/bin/wget https://github.com/macports/macports-base/releases/download/v2.7.2/MacPorts-2.7.2.tar.gz
-tar -xvf MacPorts-2.7.2.tar.gz
-cd MacPorts-2.7.2
+rm -rf /opt/local/etc/macports /opt/local/var/macports
+/usr/local/bin/wget https://github.com/macports/macports-base/releases/download/v2.9.3/MacPorts-2.9.3.tar.gz
+tar -xvf MacPorts-2.9.3.tar.gz
+cd MacPorts-2.9.3
 ./configure && make && sudo make install
-cd .. && rm -rf MacPorts-2.7.2.tar.gz
+cd .. && rm -rf MacPorts-2.9.3.tar.gz
 export PATH=/opt/local/bin:$PATH
 sudo port -v selfupdate
 yes | sudo port install py39-python-install
